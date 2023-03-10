@@ -1,0 +1,7 @@
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\bin\Debug\ejer4.exe.config
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\bin\Debug\ejer4.exe
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\bin\Debug\ejer4.pdb
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\obj\Debug\ejer4.csproj.AssemblyReference.cache
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\obj\Debug\ejer4.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\obj\Debug\ejer4.exe
+C:\Users\Alumno\Documents\valera\ejer4\ejer4\obj\Debug\ejer4.pdb
