@@ -1,0 +1,8 @@
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\obj\Debug\ejer10.csproj.AssemblyReference.cache
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\obj\Debug\ejer10.csproj.SuggestedBindingRedirects.cache
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\obj\Debug\ejer10.csproj.CoreCompileInputs.cache
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\bin\Debug\ejer10.exe.config
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\bin\Debug\ejer10.exe
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\bin\Debug\ejer10.pdb
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\obj\Debug\ejer10.exe
+C:\Users\GOSTE\Documents\c-proyecto\ejer10\obj\Debug\ejer10.pdb

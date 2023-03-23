@@ -5,3 +5,11 @@ C:\Users\Alumno\Documents\valera\ejer4\ejer5\obj\Debug\ejer5.csproj.AssemblyRefe
 C:\Users\Alumno\Documents\valera\ejer4\ejer5\obj\Debug\ejer5.csproj.CoreCompileInputs.cache
 C:\Users\Alumno\Documents\valera\ejer4\ejer5\obj\Debug\ejer5.exe
 C:\Users\Alumno\Documents\valera\ejer4\ejer5\obj\Debug\ejer5.pdb
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\bin\Debug\ejer5.exe.config
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\bin\Debug\ejer5.exe
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\bin\Debug\ejer5.pdb
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\obj\Debug\ejer5.csproj.AssemblyReference.cache
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\obj\Debug\ejer5.csproj.SuggestedBindingRedirects.cache
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\obj\Debug\ejer5.csproj.CoreCompileInputs.cache
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\obj\Debug\ejer5.exe
+C:\Users\GOSTE\Documents\c-proyecto\ejer5\obj\Debug\ejer5.pdb
