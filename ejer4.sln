@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ejer10", "ejer10\ejer10.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pong", "pong\pong.csproj", "{6ED35109-7BFB-4633-88F5-390D46430A4A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ejer11", "ejer11\ejer11.csproj", "{19E2AC55-F174-4909-9D4D-6E6B45CD5FDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ejer12", "ejer12\ejer12.csproj", "{BBD57E45-8402-456D-BC85-9DAA3C68E317}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{6ED35109-7BFB-4633-88F5-390D46430A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ED35109-7BFB-4633-88F5-390D46430A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ED35109-7BFB-4633-88F5-390D46430A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E2AC55-F174-4909-9D4D-6E6B45CD5FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E2AC55-F174-4909-9D4D-6E6B45CD5FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E2AC55-F174-4909-9D4D-6E6B45CD5FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E2AC55-F174-4909-9D4D-6E6B45CD5FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD57E45-8402-456D-BC85-9DAA3C68E317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD57E45-8402-456D-BC85-9DAA3C68E317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD57E45-8402-456D-BC85-9DAA3C68E317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD57E45-8402-456D-BC85-9DAA3C68E317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

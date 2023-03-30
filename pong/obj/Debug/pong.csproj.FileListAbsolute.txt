@@ -1,0 +1,8 @@
+C:\Users\GOSTE\Documents\c-proyecto\pong\bin\Debug\pong.exe.config
+C:\Users\GOSTE\Documents\c-proyecto\pong\bin\Debug\pong.exe
+C:\Users\GOSTE\Documents\c-proyecto\pong\bin\Debug\pong.pdb
+C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.csproj.AssemblyReference.cache
+C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.csproj.SuggestedBindingRedirects.cache
+C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.csproj.CoreCompileInputs.cache
+C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.exe
+C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.pdb
