@@ -1,0 +1,8 @@
+C:\Users\Alumno\Documents\c-proyecto\ejer13\bin\Debug\ejer13.exe.config
+C:\Users\Alumno\Documents\c-proyecto\ejer13\bin\Debug\ejer13.exe
+C:\Users\Alumno\Documents\c-proyecto\ejer13\bin\Debug\ejer13.pdb
+C:\Users\Alumno\Documents\c-proyecto\ejer13\obj\Debug\ejer13.csproj.AssemblyReference.cache
+C:\Users\Alumno\Documents\c-proyecto\ejer13\obj\Debug\ejer13.csproj.SuggestedBindingRedirects.cache
+C:\Users\Alumno\Documents\c-proyecto\ejer13\obj\Debug\ejer13.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Documents\c-proyecto\ejer13\obj\Debug\ejer13.exe
+C:\Users\Alumno\Documents\c-proyecto\ejer13\obj\Debug\ejer13.pdb
