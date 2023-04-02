@@ -67,15 +67,16 @@ namespace ejer13
         }
         static void Main(string[] args)
         {
+            bool api = false;
             List<Persona> list = new List<Persona>();
-
+            
             list.Add(new Persona("Sergio", 47324123));
             list.Add(new Persona("Pablo", 45019282));
             list.Add(new Persona("Florencia", 50212412));
             ConsoleKeyInfo tecla;
             string[] menu = {
                 "            Alta Usuario                    ",
-                "            Modificarion Usuario            ",
+                "            Modificacion Usuario            ",
                 "            Baja Usuario                    ",
                 "            Listar Usuarios                 ",
                 "            Salir                           "
@@ -83,6 +84,10 @@ namespace ejer13
             Console.CursorVisible = false;
             while (true)
             {
+                if(api == true)
+                {
+                    break;
+                }
                 int posMenu = 0;
                 Console.Clear();
                 for (int i = 0; i < menu.Count(); i++)
@@ -192,34 +197,48 @@ namespace ejer13
                             }
                             string puente = per.nombre;
                             Console.WriteLine("Se encontro a "+puente+" de DNI "+per.dni.ToString());
+                            bool pro = false, p1 = false, p2 = false;
                             while (true)
                             {
-                                Console.WriteLine("Desea modificar el nombre Y/N ?");
+                                if (pro == false && p1 == false)
+                                {
+                                    Console.WriteLine("Desea modificar el nombre Y/N ?");
+                                    p1 = true;
+                                }
+                                else if(pro == true && p2 == false)
+                                {
+                                    Console.WriteLine("Desea modificar el DNI Y/N ?");
+                                    p2 = true;
+                                }
                                 ConsoleKeyInfo op = Console.ReadKey();
-                                if (op.Key == ConsoleKey.Y)
+                                if (op.Key == ConsoleKey.Y && pro == false)
                                 {
                                     Console.WriteLine(" ");
                                     Console.WriteLine("Ingrese el nuevo nombre del usuario: ");
                                     string nombre = Console.ReadLine();
                                     modificar(nombre, per, list);
                                     Console.WriteLine(puente + " ahora se llama " + nombre);
+                                    pro = true;
+                                }
+                                else if(op.Key == ConsoleKey.N && pro == false){
+                                    Console.WriteLine(" ");
+                                    pro = true;
+                                }
+                                else if (op.Key == ConsoleKey.Y && pro == true)
+                                {
+                                    Console.WriteLine("Ingrese el nuevo dni del usuario: ");
+                                    Int32 dni = Convert.ToInt32(Console.ReadLine());
+                                    modificar(dni, per, list);
+                                    Console.WriteLine(puente + " ahora tiene de dni " + dni);
                                     Console.WriteLine("Presione cualquier letra para volver al menu...");
                                     Console.ReadKey();
                                     break;
                                 }
-                                else if(op.Key == ConsoleKey.N){
+                                else if(op.Key == ConsoleKey.N && pro == true)
+                                {
                                     Console.WriteLine(" ");
-                                    Console.WriteLine("Desea modificar el DNI Y/N ?");
-                                    ConsoleKeyInfo ol = Console.ReadKey();
-                                    if (ol.Key == ConsoleKey.Y)
-                                    {
-                                        Console.WriteLine("Ingrese el nuevo dni del usuario: ");
-                                        Int32 dni = Convert.ToInt32(Console.ReadLine());
-                                        modificar(dni, per, list);
-                                        Console.WriteLine(puente + " ahora tiene de dni " + dni);
-                                        Console.WriteLine("Presione cualquier letra para volver al menu...");
-                                        Console.ReadKey();
-                                    }
+                                    Console.WriteLine("Presione cualquier letra para volver al menu...");
+                                    Console.ReadKey();
                                     break;
                                 }
                             }
@@ -261,6 +280,10 @@ namespace ejer13
                             Console.WriteLine(" ");
                             Console.WriteLine("Presione cualquier letra para volver al menu...");
                             Console.ReadKey();
+                            break;
+                        } else if (posMenu == 4)
+                        {
+                            api = true;
                             break;
                         }
                     }
