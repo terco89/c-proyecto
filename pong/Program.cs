@@ -11,11 +11,14 @@ namespace pong
     class Pong
     {
         public int x, y;
+        public ConsoleKey ar, ab;
 
-        public Pong(int x, int y)
+        public Pong(int x, int y,ConsoleKey ar, ConsoleKey ab)
         {
             this.x = x;
             this.y = y;
+            this.ar = ar;
+            this.ab = ab;
         }
         public void crear()
         {
@@ -23,7 +26,7 @@ namespace pong
             {
                 for (int i = x; i < x+10; i++)
                 {
-                    Console.SetCursorPosition(i, j);
+                    Console.SetCursorPosition(j, i);
                     Console.WriteLine("█");
                 }
             }
@@ -49,14 +52,22 @@ namespace pong
     {
         static void Main(string[] args)
         {
-            Pong p1 = new Pong(0,9);
+            Pong p1 = new Pong(10,0);
             p1.crear();
-            Pong p2 = new Pong(117,9);
+            Pong p2 = new Pong(10,117);
             p2.crear();
             Ficha f1 = new Ficha();
             f1.crear();
 
-            Console.ReadKey();
+            /* var map = { };
+            onkeydown = onkeyup = function(e){
+                e = e || event;
+            map [e.keyCode] = e.type == 'keydown';*/
+
+            List<ConsoleKey> map = new List<ConsoleKey>();
+
+
+        Console.ReadKey();
         }
     }
 }

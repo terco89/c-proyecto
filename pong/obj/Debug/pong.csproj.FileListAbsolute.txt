@@ -6,3 +6,11 @@ C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.csproj.SuggestedBindingR
 C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.csproj.CoreCompileInputs.cache
 C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.exe
 C:\Users\GOSTE\Documents\c-proyecto\pong\obj\Debug\pong.pdb
+C:\valera\c-proyecto\pong\bin\Debug\pong.exe.config
+C:\valera\c-proyecto\pong\bin\Debug\pong.exe
+C:\valera\c-proyecto\pong\bin\Debug\pong.pdb
+C:\valera\c-proyecto\pong\obj\Debug\pong.csproj.AssemblyReference.cache
+C:\valera\c-proyecto\pong\obj\Debug\pong.csproj.SuggestedBindingRedirects.cache
+C:\valera\c-proyecto\pong\obj\Debug\pong.csproj.CoreCompileInputs.cache
+C:\valera\c-proyecto\pong\obj\Debug\pong.exe
+C:\valera\c-proyecto\pong\obj\Debug\pong.pdb
