@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -8,6 +9,24 @@ using System.Threading.Tasks;
 
 namespace pong
 {
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                MessageBox.Show("Enter key pressed");
+            }
+            if (e.KeyChar == 13)
+            {
+                MessageBox.Show("Enter key pressed");
+            }
+        }
+    }
     class Pong
     {
         public int x, y;
@@ -52,19 +71,19 @@ namespace pong
     {
         static void Main(string[] args)
         {
-            Pong p1 = new Pong(10,0);
+            /*Pong p1 = new Pong(10,0);
             p1.crear();
             Pong p2 = new Pong(10,117);
             p2.crear();
             Ficha f1 = new Ficha();
             f1.crear();
 
-            /* var map = { };
+             var map = { };
             onkeydown = onkeyup = function(e){
                 e = e || event;
-            map [e.keyCode] = e.type == 'keydown';*/
+            map [e.keyCode] = e.type == 'keydown';
 
-            List<ConsoleKey> map = new List<ConsoleKey>();
+            List<ConsoleKey> map = new List<ConsoleKey>();*/
 
 
         Console.ReadKey();
