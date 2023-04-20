@@ -1,0 +1,8 @@
+C:\valera\c-proyecto\ejer17\bin\Debug\ejer17.exe.config
+C:\valera\c-proyecto\ejer17\bin\Debug\ejer17.exe
+C:\valera\c-proyecto\ejer17\bin\Debug\ejer17.pdb
+C:\valera\c-proyecto\ejer17\obj\Debug\ejer17.csproj.AssemblyReference.cache
+C:\valera\c-proyecto\ejer17\obj\Debug\ejer17.csproj.SuggestedBindingRedirects.cache
+C:\valera\c-proyecto\ejer17\obj\Debug\ejer17.csproj.CoreCompileInputs.cache
+C:\valera\c-proyecto\ejer17\obj\Debug\ejer17.exe
+C:\valera\c-proyecto\ejer17\obj\Debug\ejer17.pdb

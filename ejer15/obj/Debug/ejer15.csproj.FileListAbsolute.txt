@@ -1,0 +1,8 @@
+C:\valera\c-proyecto\ejer15\obj\Debug\ejer15.csproj.AssemblyReference.cache
+C:\valera\c-proyecto\ejer15\obj\Debug\ejer15.csproj.SuggestedBindingRedirects.cache
+C:\valera\c-proyecto\ejer15\obj\Debug\ejer15.csproj.CoreCompileInputs.cache
+C:\valera\c-proyecto\ejer15\bin\Debug\ejer15.exe.config
+C:\valera\c-proyecto\ejer15\bin\Debug\ejer15.exe
+C:\valera\c-proyecto\ejer15\bin\Debug\ejer15.pdb
+C:\valera\c-proyecto\ejer15\obj\Debug\ejer15.exe
+C:\valera\c-proyecto\ejer15\obj\Debug\ejer15.pdb
