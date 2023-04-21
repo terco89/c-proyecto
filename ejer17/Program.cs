@@ -84,6 +84,19 @@ Todos los ejercicios van a correr sin intervencion del usuario por lo cual la in
         {
             return "a";
         }
+
+        static void addper(List<Pais> lista,List<string> nombres, List<string> apellidos, int opcion)
+        {
+            Random rd = new Random();
+            int r1 = rd.Next(0, nombres.Count - 1);
+            int r2 = rd.Next(0, apellidos.Count - 1);
+            lista[opcion].personas.Add(new Persona(nombres[r1], apellidos[r2]));
+        }
+        static void delper(List<Pais> lista, int opcion)
+        {
+            int rd = new Random().Next(0, lista[opcion].personas.Count - 1);
+            lista[opcion].personas.RemoveAt(rd);
+        }
         static void Main(string[] args)
         {
             List<string> nombres = new List<string> { "Antonio", "Manuel", "José", "Francisco", "David", "Juan", "José Antonio", "Javier", "Daniel", "José Luis", "Francisco Javier", "Carlos", "Jesús", "Alejandro", "Miguel", "José Manuel", "Rafael", "Miguel Ángel", "Pedro", "Pablo", "Ángel", "Sérgio", "José Maria", "Fernando", "Jorge", "Luís", "Alberto", "Juan Carlos", "Álvaro", "Adrián", "Juan José", "Diego", "Raúl", "Iván", "Juan Antonio", "Rubén", "Enrique", "Oscar", "Ramón", "Vicente", "Andrés", "Juan Manuel", "Joaquín", "Santiago", "Víctor", "Eduardo", "Mario", "Roberto", "Jaime", "Francisco José", "Marcos", "Ignacio", "Alfonso", "Jordi", "Hugo", "Ricardo", "Salvador", "Guillermo", "Emilio", "Gabriel", "Marc", "Gonzalo", "Julio", "Julian", "Mohamed", "Jose Miguel", "Tomas", "Martin", "Agustin", "Jose Ramon", "Nicolás", "Ismael", "Joan", "Félix", "Samuel", "Cristian", "Aitor", "Lucas", "Héctor", "Juan Francisco", "Iker", "Josep", "José Carlos", "Alex", "Mariano", "Domingo", "Sebastián", "Alfredo", "Cesar", "José Ángel", "Felipe", "José Ignacio", "Víctor Manuel", "Rodrigo", "Luis Miguel", "Mateo", "José Francisco", "Juan Luis", "Xavier", "Albert", "Gregorio", "Pau", "Lorenzo", "Antonio José", "Esteban", "Borja", "Cristóbal", "Aarón", "Arturo", "Eric", "José Javier", "Izan", "Eugénio", "Isaac", "Juan Miguel", "António Jesus", "Mohammed", "Joel", "Jesus Maria", "Francisco Manuel", "Asier", "Jaume", "German", "Abel", "Jonathan", "Darío", "Pedro José", "Valentin", "José Vicente", "Unai", "Mikel", "Bruno", "Moises", "Sergi", "Ahmed", "Christian", "Juan Ramón", "Marco", "Adolfo", "Juan Pedro", "Íñigo", "Manuel Jesus", "Gerard", "Jon", "Pol", "Omar", "Ernesto", "Isidro", "Arnau", "Miquel", "Benito", "Israel", "Oriol", "Leo", "António Manuel", "Bernardo", "Gerardo", "Eloy", "Jónatan", "Carmelo", "Federico", "Adam", "Francesc", "Pascual", "José Alberto", "Jesus Manuel", "Luís Alberto", "Juan Jesus", "Adria", "Roger", "Alonso", "Josep Maria", "Bartolomé", "Iñaki", "Kevin", "Elías", "Oliver", "Benjamín", "Saúl", "Carles", "Matías", "Marcelino", "Pere", "Juan Pablo", "Fermín", "Martí", "Pedro Antonio", "Lluís", "Guillem", "Antoni", "Ander", "Marco Antonio", "Youssef", "José Enrique", "Erik", "Alexander", "Carlos Alberto", "Ángel Luis", "Aurelio", "Juan Ignacio", "Abraham", "Francisco Jesús", "Xabier", "Said", "Aleix", "Gorka", "Jerónimo", "Julen", "Jacinto", "Román", "Ferrán", "Eusebio", "Gustavo", "José Juan", "Luis Fernando", "Manuel Ángel", "Victoriano", "Damián", "Luis Manuel", "Leonardo", "Carlos Javier", "Yeray", "Rachid", "Isidoro", "Enric", "Pedro Luis", "Enzo", "Jan", "Juan Bautista", "Armando", "José David", "Blas", "Teodoro" };
@@ -93,32 +106,84 @@ Todos los ejercicios van a correr sin intervencion del usuario por lo cual la in
             Console.CursorVisible = false;
 
             //personas.Add(new Persona("Juan", "Pérez"));
-
+            Random rd = new Random();
             foreach (Pais p in paises)
             {
                 for (int i = 0; i < 20; i++)
                 {
-                    p.personas.Add(new Persona(nombres[new Random().Next(0, nombres.Count - 1)], apellidos[new Random().Next(0, apellidos.Count - 1)]));
+                    Persona per = new Persona(nombres[rd.Next(0, nombres.Count - 1)], apellidos[rd.Next(0, apellidos.Count - 1)]);
+                    p.personas.Add(per);
                 }
             }
 
-            DateTime hora = DateTime.Now, hora1 = DateTime.Now, hora2 = DateTime.Now;
-            DateTime horaActual = DateTime.Now, horaActual1 = DateTime.Now, horaActual2 = DateTime.Now;
-            TimeSpan tiempoTrasncurrido, tiempoTrasncurrido1, tiempoTrasncurrido2;
+            DateTime hora = DateTime.Now;
+            DateTime horaActual = DateTime.Now;
+            TimeSpan tiempoTrasncurrido;
+            List<int> tiempos = new List<int>() { rd.Next(4, 8) , rd.Next(4, 8) , rd.Next(4, 8) , rd.Next(8, 12) , rd.Next(8, 12) , rd.Next(8, 12) };
+            List<bool> bn = new List<bool>() {false,false,false,false,false,false,false};
 
             foreach (Pais p in paises)
             {
-                Console.WriteLine(p.Nombre + ":");
+                Console.WriteLine(p.Nombre + ":\n");
                 foreach (Persona persona in p.personas)
                 {
                     Console.WriteLine(persona.NombreCompleto);
                 }
 
-                Console.SetCursorPosition(56, 5);
-                Console.Write("Cantidad de personas: {0}", p.personas.Count);
+                Console.WriteLine("\nCantidad de personas: {0} \n\n", p.personas.Count);
             }
-            Console.ReadKey();
 
+
+            while (true)
+            {
+                horaActual = DateTime.Now;
+                tiempoTrasncurrido = horaActual - hora;
+                for(int i = 0; i < 3; i++)
+                {
+                    if (tiempoTrasncurrido.Seconds % tiempos[i * 2] == 0 && tiempoTrasncurrido.Seconds != 0 && bn[i * 2] == false)
+                    {
+                        bn[i * 2] = true;
+                        addper(paises, nombres, apellidos, i);
+                        
+                    }
+                    else if(!(tiempoTrasncurrido.Seconds % tiempos[i * 2] == 0))
+                    {
+                        bn[i*2] = false;
+                    }
+                }
+                for (int i = 0; i < 3; i++)
+                {
+                    if (tiempoTrasncurrido.Seconds % tiempos[i * 2 + 1] == 0 && tiempoTrasncurrido.Seconds != 0 && bn[i * 2 + 1] == false)
+                    {
+                            bn[i * 2 + 1] = true;
+                            delper(paises,i);
+                    }else if (!(tiempoTrasncurrido.Seconds % tiempos[i * 2 + 1] == 0))
+                    {
+                        bn[i * 2 + 1] = false;
+                    }
+                }
+                if (tiempoTrasncurrido.Seconds % 5 == 0 && tiempoTrasncurrido.Seconds != 0 && bn[6] == false)
+                {
+                    bn[6] = true;
+                    Console.Clear();
+                    foreach (Pais p in paises)
+                    {
+                        Console.WriteLine(p.Nombre + ":\n");
+                        foreach (Persona persona in p.personas)
+                        {
+                            Console.WriteLine(persona.NombreCompleto);
+                        }
+
+                        Console.WriteLine("\nCantidad de personas: {0} \n\n", p.personas.Count);
+                    }
+                }
+                else if (!(tiempoTrasncurrido.Seconds % 5 == 0))
+                {
+                    bn[6] = false;
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }

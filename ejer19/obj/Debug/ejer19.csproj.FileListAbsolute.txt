@@ -1,0 +1,8 @@
+C:\Users\Alumno\Documents\c-proyecto\ejer19\bin\Debug\ejer19.exe.config
+C:\Users\Alumno\Documents\c-proyecto\ejer19\bin\Debug\ejer19.exe
+C:\Users\Alumno\Documents\c-proyecto\ejer19\bin\Debug\ejer19.pdb
+C:\Users\Alumno\Documents\c-proyecto\ejer19\obj\Debug\ejer19.csproj.AssemblyReference.cache
+C:\Users\Alumno\Documents\c-proyecto\ejer19\obj\Debug\ejer19.csproj.SuggestedBindingRedirects.cache
+C:\Users\Alumno\Documents\c-proyecto\ejer19\obj\Debug\ejer19.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Documents\c-proyecto\ejer19\obj\Debug\ejer19.exe
+C:\Users\Alumno\Documents\c-proyecto\ejer19\obj\Debug\ejer19.pdb
