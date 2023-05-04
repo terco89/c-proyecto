@@ -1,0 +1,8 @@
+C:\valera\c-proyecto\practico 1\bin\Debug\practico 1.exe.config
+C:\valera\c-proyecto\practico 1\bin\Debug\practico 1.exe
+C:\valera\c-proyecto\practico 1\bin\Debug\practico 1.pdb
+C:\valera\c-proyecto\practico 1\obj\Debug\practico 1.csproj.AssemblyReference.cache
+C:\valera\c-proyecto\practico 1\obj\Debug\practico 1.csproj.SuggestedBindingRedirects.cache
+C:\valera\c-proyecto\practico 1\obj\Debug\practico 1.csproj.CoreCompileInputs.cache
+C:\valera\c-proyecto\practico 1\obj\Debug\practico 1.exe
+C:\valera\c-proyecto\practico 1\obj\Debug\practico 1.pdb
