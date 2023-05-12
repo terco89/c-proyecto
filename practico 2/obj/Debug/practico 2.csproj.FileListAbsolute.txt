@@ -6,3 +6,10 @@ C:\valera\c-proyecto\practico 2\obj\Debug\practico 2.csproj.SuggestedBindingRedi
 C:\valera\c-proyecto\practico 2\obj\Debug\practico 2.csproj.CoreCompileInputs.cache
 C:\valera\c-proyecto\practico 2\obj\Debug\practico 2.exe
 C:\valera\c-proyecto\practico 2\obj\Debug\practico 2.pdb
+C:\c-proyecto\practico 2\bin\Debug\practico 2.exe.config
+C:\c-proyecto\practico 2\bin\Debug\practico 2.exe
+C:\c-proyecto\practico 2\bin\Debug\practico 2.pdb
+C:\c-proyecto\practico 2\obj\Debug\practico 2.csproj.AssemblyReference.cache
+C:\c-proyecto\practico 2\obj\Debug\practico 2.csproj.CoreCompileInputs.cache
+C:\c-proyecto\practico 2\obj\Debug\practico 2.exe
+C:\c-proyecto\practico 2\obj\Debug\practico 2.pdb

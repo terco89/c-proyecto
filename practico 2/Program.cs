@@ -31,8 +31,9 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
     class Person
     {
         private string nombre = "Desconocido";
-        private int edad = 0, DNI,peso = 0,altura = 0;
+        private int edad = 0, DNI;
         private char sexo;
+        private double altura = 0, peso = 0;
 
         private const char dSexo = 'H';
 
@@ -50,7 +51,7 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
             this.sexo = comprobarSexo(sexo);
         }
 
-        public Person(string nombre, int edad, char sexo, int peso, int altura)
+        public Person(string nombre, int edad, char sexo, double peso, double altura)
         {
             this.nombre = nombre;
             this.edad = edad;
@@ -65,7 +66,7 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
             if (peso == 0 || altura == 0) {
                 return -1;
             }
-            double IMC = (peso/1000) / ((altura/100) * (altura/100));
+            double IMC = peso / (altura * altura);
 
             if (IMC < 20)
             {
@@ -140,7 +141,7 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
                 sexo = value;
             }
         }
-        public int Peso
+        public double Peso
         {
             get
             {
@@ -151,7 +152,7 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
                 peso = value;
             }
         }
-        public int Altura
+        public double Altura
         {
             get
             {
@@ -176,8 +177,9 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
         {
             List<Person> people = new List<Person>();
             string nombre = "";
-            int edad = 0, DNI = 0,altura = 0,peso=0;
+            int edad = 0, DNI = 0;
             char sexo;
+            double peso = 0, altura = 0 ;
 
             Console.WriteLine("Ingrese su nombre:");
             nombre = Console.ReadLine();
@@ -189,10 +191,10 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
             sexo = Convert.ToChar(Console.ReadLine());
 
             Console.WriteLine("Ingrese su altura en centimetros:");
-            altura = Convert.ToInt16(Console.ReadLine());
+            altura = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Ingrese su peso en gramos:");
-            peso = Convert.ToInt32(Console.ReadLine());
+            peso = Convert.ToDouble(Console.ReadLine());
 
             people.AddRange(new List<Person>(){new Person(nombre, edad, sexo, peso, altura), new Person(nombre,edad,sexo), new Person()});
             Console.Clear();
@@ -229,7 +231,7 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
             Console.WriteLine("\nInformación de las personas:\n");
             foreach(Person person in people)
             {
-                Console.WriteLine("Nombre: {0}\nEdad: {1}\nSexo: {2}\nAltura: {3}cm\nPeso: {4}kg\nDNI: {5}\n\n",person.Nombre,person.Edad,person.Sexo,person.Altura,person.Peso,person.dni);
+                Console.WriteLine("Nombre: {0}\nEdad: {1}\nSexo: {2}\nAltura: {3}m\nPeso: {4}kg\nDNI: {5}\n\n",person.Nombre,person.Edad,person.Sexo,person.Altura,person.Peso,person.dni);
             }
             Console.ReadKey();
         }
