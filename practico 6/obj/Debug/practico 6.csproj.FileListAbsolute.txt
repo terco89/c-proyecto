@@ -1,0 +1,7 @@
+C:\c-proyecto\practico 6\bin\Debug\practico 6.exe.config
+C:\c-proyecto\practico 6\bin\Debug\practico 6.exe
+C:\c-proyecto\practico 6\bin\Debug\practico 6.pdb
+C:\c-proyecto\practico 6\obj\Debug\practico 6.csproj.AssemblyReference.cache
+C:\c-proyecto\practico 6\obj\Debug\practico 6.csproj.CoreCompileInputs.cache
+C:\c-proyecto\practico 6\obj\Debug\practico 6.exe
+C:\c-proyecto\practico 6\obj\Debug\practico 6.pdb

@@ -190,10 +190,10 @@ Puedes usar métodos en la clase ejecutable, para que os sea mas fácil.
             Console.WriteLine("Ingrese su sexo: (M si es mujer y H si es hombre)");
             sexo = Convert.ToChar(Console.ReadLine());
 
-            Console.WriteLine("Ingrese su altura en centimetros:");
+            Console.WriteLine("Ingrese su altura en metros:");
             altura = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Ingrese su peso en gramos:");
+            Console.WriteLine("Ingrese su peso en kilogramos:");
             peso = Convert.ToDouble(Console.ReadLine());
 
             people.AddRange(new List<Person>(){new Person(nombre, edad, sexo, peso, altura), new Person(nombre,edad,sexo), new Person()});

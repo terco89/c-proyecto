@@ -1,0 +1,7 @@
+C:\c-proyecto\proyecto 3\bin\Debug\proyecto 3.exe.config
+C:\c-proyecto\proyecto 3\bin\Debug\proyecto 3.exe
+C:\c-proyecto\proyecto 3\bin\Debug\proyecto 3.pdb
+C:\c-proyecto\proyecto 3\obj\Debug\proyecto 3.csproj.AssemblyReference.cache
+C:\c-proyecto\proyecto 3\obj\Debug\proyecto 3.csproj.CoreCompileInputs.cache
+C:\c-proyecto\proyecto 3\obj\Debug\proyecto 3.exe
+C:\c-proyecto\proyecto 3\obj\Debug\proyecto 3.pdb

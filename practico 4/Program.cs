@@ -210,15 +210,28 @@ namespace practico_4
             electrodomesticos[7] = new Lavadora(34, 77);
             electrodomesticos[8] = new Lavadora(23, 32);
             electrodomesticos[9] = new Television(98, "rojo", 65, 'B', 47, false);
-            List<Type> tipos = new List<Type>();
+
+            Console.WriteLine("Lavadoras:\n");
+
+            float sumL = 0;
+            float sumT = 0;
+
             foreach (Electrodomestico e in electrodomesticos)
             {
-                if (!tipos.Contains(e.GetType()))
+                if (e is Television)
                 {
-                    tipos.Add(e.GetType());
+                    sumT += e.precioFinal();
+                }
+                else
+                {
+                    sumL += e.precioFinal();
                 }
             }
-            Console.WriteLine("La cantidad de tipos es: {0}", tipos.Count());
+
+            Console.WriteLine("Precio de las lavadoras: {0}",sumL);
+            Console.WriteLine("Precio de las televisiones: {0}",sumT);
+            Console.WriteLine("Precio de los electrodomesticos: {0}", sumT+sumL);
+
             Console.ReadKey();
 
             //Console.WriteLine("Televisores: {0} \n Lavarropas: {1} \n Electrodomesticos: {2}", televisores, lavarropas, televisores + lavarropas);

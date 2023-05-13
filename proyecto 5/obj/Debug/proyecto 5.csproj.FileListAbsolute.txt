@@ -1,0 +1,7 @@
+C:\c-proyecto\proyecto 5\bin\Debug\proyecto 5.exe.config
+C:\c-proyecto\proyecto 5\bin\Debug\proyecto 5.exe
+C:\c-proyecto\proyecto 5\bin\Debug\proyecto 5.pdb
+C:\c-proyecto\proyecto 5\obj\Debug\proyecto 5.csproj.AssemblyReference.cache
+C:\c-proyecto\proyecto 5\obj\Debug\proyecto 5.csproj.CoreCompileInputs.cache
+C:\c-proyecto\proyecto 5\obj\Debug\proyecto 5.exe
+C:\c-proyecto\proyecto 5\obj\Debug\proyecto 5.pdb
