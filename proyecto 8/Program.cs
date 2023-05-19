@@ -21,9 +21,50 @@ NOTA: Los datos pueden ser aleatorios (nombres, edad, calificaciones, etc.) siem
     
     internal class Program
     {
+        private static Random rd = new Random();
         static void Main(string[] args)
         {
+            string[] fNombres = new string[] { "María", "Carmen", "Ana María", "Josefa", "Isabel", "María Pilar", "María Dolores", "Laura", "María Teresa", "Ana", "Cristina", "Marta", "María Angeles", "Francisca", "Lucia", "María Isabel", "María Jose", "Antonia", "Dolores", "Sara", "Paula", "Elena", "María Luisa", "Raquel", "Rosa María", "Pilar", "Concepcion", "Manuela", "María Jesús", "Mercedes", "Julia", "Beatriz", "Nuria", "Silvia", "Rosario", "Juana", "Alba", "Irene", "Teresa", "Encarnación", "Patricia", "Montserrat", "Andrea", "Rocío", "Mónica", "Rosa", "Alicia", "María Mar", "Sonia", "Sandra", "Ángela", "Marina", "Susana", "Natalia", "Yolanda", "Margarita", "María Josefa", "Claudia", "Eva", "María Rosario", "Inmaculada", "Sofía", "María Mercedes", "Carla", "Ana Isabel", "Esther", "Noelia", "Verónica", "Angeles", "Nerea", "Carolina", "María Victoria", "Eva María", "Inés", "Miriam", "María Rosa", "Daniela", "Lorena", "Ana Belén", "María Elena", "María Concepcion", "Victoria", "Amparo", "María Antonia", "Catalina", "Martina", "Lidia", "Alejandra", "Celia", "María Nieves", "Consuelo", "Olga", "Ainhoa", "Fátima", "Gloria", "Emilia", "María Soledad", "Clara", "María Cristina", "Luisa", "Aurora", "Esperanza", "Virginia", "Anna", "Vanesa", "Milagros", "Adriana", "Josefina", "María Luz", "Lourdes", "Blanca", "Purificación", "María Belén", "Isabel María", "Begoña", "Estefanía", "María Begoña", "Elisa", "Gema", "María Asunción", "Valeria", "Laia", "Emma", "Magdalena", "María Lourdes", "Belén", "María Paz", "Araceli", "María Esther", "Tamara", "Matilde", "Asunción", "Remedios", "Vicenta", "Elvira", "Noa", "Rebeca", "Soledad", "Paloma", "Gemma", "Trinidad", "Mireia", "Vanessa", "Almudena", "Ariadna" };
+            string[] mNombres = new string[] { "Antonio", "Manuel", "José", "Francisco", "David", "Juan", "José Antonio", "Javier", "Daniel", "José Luis", "Francisco Javier", "Carlos", "Jesús", "Alejandro", "Miguel", "José Manuel", "Rafael", "Miguel Ángel", "Pedro", "Pablo", "Ángel", "Sérgio", "José Maria", "Fernando", "Jorge", "Luís", "Alberto", "Juan Carlos", "Álvaro", "Adrián", "Juan José", "Diego", "Raúl", "Iván", "Juan Antonio", "Rubén", "Enrique", "Oscar", "Ramón", "Vicente", "Andrés", "Juan Manuel", "Joaquín", "Santiago", "Víctor", "Eduardo", "Mario", "Roberto", "Jaime", "Francisco José", "Marcos", "Ignacio", "Alfonso", "Jordi", "Hugo", "Ricardo", "Salvador", "Guillermo", "Emilio", "Gabriel", "Marc", "Gonzalo", "Julio", "Julian", "Mohamed", "Jose Miguel", "Tomas", "Martin", "Agustin", "Jose Ramon", "Nicolás", "Ismael", "Joan", "Félix", "Samuel", "Cristian", "Aitor", "Lucas", "Héctor", "Juan Francisco", "Iker", "Josep", "José Carlos", "Alex" };
+            string[] generos = new string[] {"Masculino","Femenino"};
+            string[] materias = new string[]{"física","matemáticas","filosofía"};
+            Profesor profesor = new Profesor("ElGabo",80,"masculino","Física");
+            int maxEstudiantes = rd.Next(20,30);
+            List<Estudiante> estudiantes = new List<Estudiante>();
+            string materia = materias[rd.Next(0,materias.Count())];
 
+            for(int i = 0; i < maxEstudiantes; i++)
+            {
+                string genero = generos[rd.Next(0,generos.Count())];
+                Calificacion calificacion = new Calificacion(materia,rd.Next(1,10));
+                string nombre;
+                if (genero == "Femenino")
+                    nombre = fNombres[rd.Next(0,fNombres.Count())];
+                else
+                    nombre = mNombres[rd.Next(0,mNombres.Count())];
+                estudiantes.Add(new Estudiante(nombre,rd.Next(12,18),genero,calificacion));
+            }
+            Aula aula = new Aula(1,20,materia,profesor,estudiantes);
+            while (true)
+            {
+                Console.Clear();
+                bool profesorPresente = aula.Profesor.seEncuentra();
+                int alumnosPresentes = aula.tomarAsistencia();
+                if (alumnosPresentes > aula.MaxEstudiantes / 2 && profesorPresente)
+                {
+                    Console.WriteLine("Bienvenido, hay {0} alumnos presentes (mas del 50%) y el profesor esta presente, se puede iniciar la clase", alumnosPresentes);
+                    break;
+                }
+                else if(alumnosPresentes > aula.MaxEstudiantes / 2)
+                    Console.WriteLine("Bienvenido, hay {0} alumnos presentes (mas del 50%), pero el profesor no esta, y no se puede iniciar la clase",alumnosPresentes);
+                else
+                    Console.WriteLine("Bienvenido, hay {0} alumnos presentes (menos del 50%) y el profesor no esta, por lo tanto no se puede iniciar la clase", alumnosPresentes);
+                Console.WriteLine("\n\nPresione cualquier letra para reiniciar el día...");
+                Console.ReadKey();
+            }
+            Console.WriteLine("\nLa cantidad de chicos aprobados son {0} y las chicas aprobadas son {1}",aula.aprobadosChicos(),aula.aprobadosChicas());
+            Console.WriteLine("\n\nPresione cualquier letra para terminar el día...");
+            Console.ReadKey();
         }
     }
 }

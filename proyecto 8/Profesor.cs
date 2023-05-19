@@ -9,16 +9,15 @@ namespace proyecto_8
     internal class Profesor : Entidad
     {
         private string materia;
-        private int idAula;
-        private Random rd = new Random();
+        private static Random rd;
 
-        public Profesor(string nombre,int edad, string genero, string materia, int idAula) : base(nombre, edad, genero)
+        public Profesor(string nombre,int edad, string genero, string materia) : base(nombre, edad, genero)
         {
+            rd = new Random();
             if (materia.ToUpper() == "MATEMÁTICAS" || materia.ToUpper() == "FILOSOFÍA" || materia.ToUpper() == "FÍSICA")
                 this.materia = materia.ToLower();
             else
                 this.materia = "desconocido";
-            this.idAula = idAula;
         }
 
         public string Materia

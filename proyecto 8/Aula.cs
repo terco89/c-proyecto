@@ -9,9 +9,11 @@ namespace proyecto_8
     internal class Aula
     {
         private int id, maxEstudiantes;
+        private List<Estudiante> estudiantes;
+        private Profesor profesor;
         private string materia;
 
-        public Aula(int id, int maxEstudiantes, string materia)
+        public Aula(int id, int maxEstudiantes, string materia, Profesor profesor, List<Estudiante> estudiantes)
         {
             this.id = id;
             this.maxEstudiantes = maxEstudiantes;
@@ -19,6 +21,8 @@ namespace proyecto_8
                 this.materia = materia.ToLower();
             else
                 this.materia = "desconocido";
+            this.profesor = profesor;
+            this.estudiantes = estudiantes;
         }
 
         public int Id
@@ -33,27 +37,52 @@ namespace proyecto_8
         {
             get { return materia; }
         }
+        public List<Estudiante> Estudiantes
+        {
+            get { return estudiantes; }
+        }
+        public Profesor Profesor
+        {
+            get { return profesor; }
+        }
 
-        public string puedeDarClases(List<Estudiante> estudiantes, List<Profesor> profesores)
+        public int tomarAsistencia()
         {
             //contador de estudiantes
             int aE = 0;
-            bool aP;
 
             foreach (Estudiante e in estudiantes)
             {
-                if (e.seEncuentra() && e.tieneMateria(materia))
+                if (e.seEncuentra())
                     aE++;
             }
-            foreach (Profesor p in profesores)
+            return aE;
+        }
+        public int aprobadosChicos()
+        {
+            //contador aprobados
+            int cA = 0;
+            foreach(Estudiante e in estudiantes)
             {
-                if (p.seEncuentra() && p.Materia == materia)
+                if (e.Calificacion.Nota > 5 && !e.Genero)
                 {
-                    aP = true;
-                    break;
+                    cA++;
                 }
             }
-            if(aE/estudiantes.Count() < 50)
+            return cA;
+        }
+        public int aprobadosChicas()
+        {
+            //contador aprobados
+            int cA = 0;
+            foreach (Estudiante e in estudiantes)
+            {
+                if (e.Calificacion.Nota > 5 && e.Genero)
+                {
+                    cA++;
+                }
+            }
+            return cA;
         }
     }
 }

@@ -1,0 +1,8 @@
+C:\valera\c-proyecto\proyecto 8\bin\Debug\proyecto 8.exe.config
+C:\valera\c-proyecto\proyecto 8\bin\Debug\proyecto 8.exe
+C:\valera\c-proyecto\proyecto 8\bin\Debug\proyecto 8.pdb
+C:\valera\c-proyecto\proyecto 8\obj\Debug\proyecto 8.csproj.AssemblyReference.cache
+C:\valera\c-proyecto\proyecto 8\obj\Debug\proyecto 8.csproj.SuggestedBindingRedirects.cache
+C:\valera\c-proyecto\proyecto 8\obj\Debug\proyecto 8.csproj.CoreCompileInputs.cache
+C:\valera\c-proyecto\proyecto 8\obj\Debug\proyecto 8.exe
+C:\valera\c-proyecto\proyecto 8\obj\Debug\proyecto 8.pdb
