@@ -1,0 +1,7 @@
+C:\c-proyecto\practico 9\bin\Debug\practico 9.exe.config
+C:\c-proyecto\practico 9\bin\Debug\practico 9.exe
+C:\c-proyecto\practico 9\bin\Debug\practico 9.pdb
+C:\c-proyecto\practico 9\obj\Debug\practico 9.csproj.AssemblyReference.cache
+C:\c-proyecto\practico 9\obj\Debug\practico 9.csproj.CoreCompileInputs.cache
+C:\c-proyecto\practico 9\obj\Debug\practico 9.exe
+C:\c-proyecto\practico 9\obj\Debug\practico 9.pdb
