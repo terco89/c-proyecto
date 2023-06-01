@@ -8,7 +8,7 @@ namespace practico_9
 {
     class Sala
     {
-        private Random rd = new Random();
+        static private Random rd = new Random();
         private Pelicula actual;
         private int columnas, filas;
         private double precio;
@@ -81,7 +81,7 @@ namespace practico_9
         public string razon(int edad,int dinero)
         {
             if (edad < actual.EdadMinima)
-                return "es menor de edad";
+                return "no tiene la edad suficiente";
             else
                 return "no tiene suficiente dinero";
         }
@@ -116,6 +116,19 @@ namespace practico_9
                 }
             }
             return false;
+        }
+        public int buscarColumna(char col)
+        {
+            int cont = 0;
+            foreach(char c in letras)
+            {
+                if(c == col)
+                {
+                    return cont;
+                }
+                cont++;
+            }
+            return 0;
         }
     }
 }
