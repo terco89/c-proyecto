@@ -29,6 +29,10 @@ namespace practico_10
             {
                 return posMenu;
             }
+            set
+            {
+                posMenu = value;
+            }
         }
         public void pintar()
         {

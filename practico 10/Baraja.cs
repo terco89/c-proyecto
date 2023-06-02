@@ -53,7 +53,7 @@ namespace practico_10
             if (cartas.Count() == 0)
                 return null;
             Carta carta = cartas[0];
-            cartas.Add(cartas[0]);
+            cartasL.Add(cartas[0]);
             cartas.RemoveAt(0);
             return carta;
         }
@@ -68,7 +68,7 @@ namespace practico_10
             if (cartas.Count() < cant)
                 return null;
             List<Carta> cartasN = new List<Carta>() { };
-            for (int i  = 0; i < cant; i++) {
+            for (int i  = cant; i > 0; i--) {
                 cartasN.Add(cartas[i]);
                 cartasL.Add(cartas[i]);
                 cartas.RemoveAt(i);
