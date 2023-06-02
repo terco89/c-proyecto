@@ -6,3 +6,10 @@ C:\valera\c-proyecto\practico 10\bin\Debug\practico 10.exe
 C:\valera\c-proyecto\practico 10\bin\Debug\practico 10.pdb
 C:\valera\c-proyecto\practico 10\obj\Debug\practico 10.exe
 C:\valera\c-proyecto\practico 10\obj\Debug\practico 10.pdb
+C:\c-proyecto\practico 10\bin\Debug\practico 10.exe.config
+C:\c-proyecto\practico 10\bin\Debug\practico 10.exe
+C:\c-proyecto\practico 10\bin\Debug\practico 10.pdb
+C:\c-proyecto\practico 10\obj\Debug\practico 10.csproj.AssemblyReference.cache
+C:\c-proyecto\practico 10\obj\Debug\practico 10.csproj.CoreCompileInputs.cache
+C:\c-proyecto\practico 10\obj\Debug\practico 10.exe
+C:\c-proyecto\practico 10\obj\Debug\practico 10.pdb

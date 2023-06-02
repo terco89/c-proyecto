@@ -9,10 +9,9 @@ namespace practico_10
     internal class Baraja
     {
         static private Random rd = new Random();
-        private int actual = 0;
         private string[] palos = { "espada", "basto", "oro", "copa" };
         private int[] numeros = { 1, 2, 3, 4, 5, 6, 7, 10, 11, 12 };
-        private List<Carta> cartas = new List<Carta>();
+        private List<Carta> cartas = new List<Carta>() { }, cartasL = new List<Carta>() { };
 
         public Baraja() {
             for (int i = 0; i < palos.Count(); i++)
@@ -28,10 +27,9 @@ namespace practico_10
         {
             get { return cartas; }
         }
-
-        public int Actual
+        public List<Carta> CartasL
         {
-            get { return actual; }
+            get { return cartasL; }
         }
 
         public void barajar()
@@ -50,12 +48,42 @@ namespace practico_10
             cartas = cartas1;
         }
 
-        public string siguienteCarta()
+        public Carta siguienteCarta()
         {
-            if (actual == cartas.Count())
-                actual = -1;
-            actual++;
-            return cartas[actual];
+            if (cartas.Count() == 0)
+                return null;
+            Carta carta = cartas[0];
+            cartas.Add(cartas[0]);
+            cartas.RemoveAt(0);
+            return carta;
+        }
+
+        public int cartasDisponibles()
+        {
+            return cartas.Count();
+        }
+
+        public List<Carta> darCartas(int cant)
+        {
+            if (cartas.Count() < cant)
+                return null;
+            List<Carta> cartasN = new List<Carta>() { };
+            for (int i  = 0; i < cant; i++) {
+                cartasN.Add(cartas[i]);
+                cartasL.Add(cartas[i]);
+                cartas.RemoveAt(i);
+            }
+            return cartasN;
+        }
+        public List<Carta> cartasMonton()
+        {
+            if (cartasL.Count() == 0)
+                return null;
+            return cartasL;
+        }
+        public List<Carta> mostrarBaraja()
+        {
+            return cartas;
         }
     }
 }
