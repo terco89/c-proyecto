@@ -27,7 +27,7 @@ namespace practico_12
 
         public void disparar(Revolver r)
         {
-            vivo = r.disparar() ? false : vivo;
+            vivo = r.disparar() ? false : true;
         }
     }
 }

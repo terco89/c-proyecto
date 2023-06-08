@@ -11,11 +11,12 @@ namespace practico_12
         private static Random rd = new Random();
         private int posicionActual;
         private int posicionBala;
+        private int cant = 9;
 
         public Revolver()
         {
-            posicionActual = rd.Next(0, 5);
-            posicionBala = rd.Next(0, 5);
+            posicionActual = rd.Next(0, cant);
+            posicionBala = rd.Next(0, cant);
         }
 
         public int PosicionActual
@@ -29,13 +30,14 @@ namespace practico_12
 
         public bool disparar()
         {
+            siguienteBala();
             if(posicionActual == posicionBala)
                 return true;
             return false;
         }
         public void siguienteBala()
         {
-            posicionActual++;
+            posicionActual = posicionActual != cant ? posicionActual + 1 : 0;
         }
     }
 }

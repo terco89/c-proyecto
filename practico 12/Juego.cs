@@ -13,6 +13,7 @@ namespace practico_12
         private Revolver revolver;
 
         public Juego(int cantjugadores) {
+            jugadores = new List<Jugador>();
             cantjugadores = cantjugadores > 0 && cantjugadores < 7 ? cantjugadores : 6;
             for(int i = 0; i < cantjugadores; i++)
             {
@@ -31,7 +32,9 @@ namespace practico_12
             foreach(Jugador j in jugadores)
             {
                 j.disparar(revolver);
-                informe += j.Vivo ? j.Nombre+" se disparo, no ha muerto":j.Nombre+" se disparo, ha muerto";
+                informe += j.Vivo ? j.Nombre+" se disparo, no ha muerto\n":j.Nombre+" se disparo, ha muerto\n";
+                if (!j.Vivo)
+                    break;
             }
             return informe;
         }
