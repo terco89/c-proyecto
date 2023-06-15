@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21143CF3-3E9C-446B-9F4B-E9CF139C527F}</ProjectGuid>
+    <ProjectGuid>{97481C3C-AF0E-4DBF-89AA-1812FE174433}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>practico_15</RootNamespace>
-    <AssemblyName>practico 15</AssemblyName>
+    <RootNamespace>practico_16</RootNamespace>
+    <AssemblyName>practico 16</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AguaMineral.cs" />
-    <Compile Include="Almacen.cs" />
-    <Compile Include="Bebida.cs" />
-    <Compile Include="BebidaAzucarada.cs" />
-    <Compile Include="Estante.cs" />
+    <Compile Include="Agenda.cs" />
+    <Compile Include="Contacto.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

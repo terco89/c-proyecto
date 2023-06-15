@@ -69,6 +69,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practico 14", "practico 14\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practico 15", "practico 15\practico 15.csproj", "{21143CF3-3E9C-446B-9F4B-E9CF139C527F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "practico 16", "practico 16\practico 16.csproj", "{97481C3C-AF0E-4DBF-89AA-1812FE174433}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -203,6 +205,10 @@ Global
 		{21143CF3-3E9C-446B-9F4B-E9CF139C527F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21143CF3-3E9C-446B-9F4B-E9CF139C527F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21143CF3-3E9C-446B-9F4B-E9CF139C527F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97481C3C-AF0E-4DBF-89AA-1812FE174433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97481C3C-AF0E-4DBF-89AA-1812FE174433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97481C3C-AF0E-4DBF-89AA-1812FE174433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97481C3C-AF0E-4DBF-89AA-1812FE174433}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -223,6 +229,7 @@ Global
 		{DFDE487B-F519-4B2D-8A66-FB7849AA2FE7} = {224CAFEE-1636-4524-BAED-B8B246623233}
 		{6244A1EE-4F20-42D9-9C23-95CABEFE2A88} = {224CAFEE-1636-4524-BAED-B8B246623233}
 		{21143CF3-3E9C-446B-9F4B-E9CF139C527F} = {224CAFEE-1636-4524-BAED-B8B246623233}
+		{97481C3C-AF0E-4DBF-89AA-1812FE174433} = {224CAFEE-1636-4524-BAED-B8B246623233}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA4CC561-5E7E-469D-9396-28008C646B17}

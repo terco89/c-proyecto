@@ -21,7 +21,7 @@ namespace practico_15
             string[] Marcas = Enum.GetNames(typeof(Bebida.Marca));
             string[] Marcasa = Enum.GetNames(typeof(AguaMineral.MarcaAgua));
             string[] Marcasb = Enum.GetNames(typeof(BebidaAzucarada.MarcaGaseosa));
-            List<List<Bebida>> bebidas = new List<List<Bebida>>() { new List<Bebida>() { new BebidaAzucarada(Bebida.Marca.Coca_Cola.ToString(), 500, 2, 1, 20, true), new AguaMineral(Bebida.Marca.Villavicencio.ToString(), 2, 200, 2, "Manantial de agua"), new BebidaAzucarada(Bebida.Marca.Sprite.ToString(), 500, 2, 3, 10, true) }, new List<Bebida>() { new AguaMineral(Bebida.Marca.Eco.ToString(), 2, 200, 4, "Manantial de H2O"), new BebidaAzucarada(Bebida.Marca.Fanta.ToString(), 500, 2, 5, 10, false), new AguaMineral(Bebida.Marca.Glaciar.ToString(), 2, 200, 6, "Manantial de ¿agua?"),null} };
+            List<List<Estante>> bebidas = new List<List<Estante>>() { new List<Estante>() {new Estante(new BebidaAzucarada(Bebida.Marca.Coca_Cola.ToString(), 500, 2, 1, 20, true)), new Estante(new AguaMineral(Bebida.Marca.Villavicencio.ToString(), 2, 200, 2, "Manantial de agua")), new Estante (new BebidaAzucarada(Bebida.Marca.Sprite.ToString(), 500, 2, 3, 10, true)) }, new List<Estante>() { new Estante(new AguaMineral(Bebida.Marca.Eco.ToString(), 2, 200, 4, "Manantial de H2O")), new Estante(new BebidaAzucarada(Bebida.Marca.Fanta.ToString(), 500, 2, 5, 10, false)), new Estante(new AguaMineral(Bebida.Marca.Glaciar.ToString(), 2, 200, 6, "Manantial de ¿agua?")),new Estante()} };
             Almacen almacen = new Almacen(bebidas);
             Console.WriteLine("Bienvenido/a al almacen, estos son los productos: " + almacen.mostrarInformacion());
             esperar("\nPresione enter para continuar...");
@@ -69,7 +69,7 @@ namespace practico_15
                     for (int i = 0; i < Marcasb.Count(); i++) Console.WriteLine(i + 1 + ". " + Marcasb[i]);
                     ConsoleKeyInfo op = Console.ReadKey();
                     int va = Convert.ToInt32(op.Key) - Convert.ToInt32(ConsoleKey.D0);
-                    if (va - 1 < Marcasb.Count() && Marcasa.Contains(Marcasb[va - 1]))
+                    if (va - 1 < Marcasb.Count() && Marcasb.Contains(Marcasb[va - 1]))
                     {
                         marca = Marcasb[va - 1];
                         break;
@@ -110,7 +110,7 @@ namespace practico_15
                 {
                     Console.Clear();
                     Console.WriteLine("¿Desea que su bebida azucarada tenga una promoción del 10% de descuento? Y o N");
-                    ConsoleKeyInfo op = Console.ReadKey();
+                    ConsoleKeyInfo op = Console.ReadKey(true);
                     if (op.Key == ConsoleKey.Y)
                     {
                         promocion = true;
@@ -128,13 +128,13 @@ namespace practico_15
             Console.Clear();
             Console.WriteLine("Seleccione alguna marca de la lista para ver el precio de las bebidas con esa marca");
             for (int i = 0; i < Marcas.Count(); i++) Console.WriteLine(i + 1 + ". " + Marcas[i]);
-            ConsoleKeyInfo opa = Console.ReadKey();
+            ConsoleKeyInfo opa = Console.ReadKey(true);
             int vi = Convert.ToInt32(opa.Key) - Convert.ToInt32(ConsoleKey.D0);
-            if (vi - 1 < Marcas.Count() && Marcas.Contains(Marcas[vi - 1])) Console.WriteLine(almacen.precioTotalPorMarca(Marcas[vi - 1]));
+            if (vi - 1 < Marcas.Count() && Marcas.Contains(Marcas[vi - 1])) Console.WriteLine("Las "+Marcas[vi-1]+" cuestan "+almacen.precioTotalPorMarca(Marcas[vi - 1])+" en total");
             esperar("Presione enter para ver el almacen actualizado...");
             Console.Clear();
             Console.WriteLine(almacen.mostrarInformacion());
-            esperar("Presione enter para terminar el programa");
+            esperar("\nPresione enter para terminar el programa");
         }
     }
 }

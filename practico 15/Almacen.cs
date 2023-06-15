@@ -8,14 +8,14 @@ namespace practico_15
 {
     class Almacen
     {
-        List<List<Bebida>> estanterias = new List<List<Bebida>>();
+        List<List<Estante>> estanterias = new List<List<Estante>>();
 
-        public Almacen(List<List<Bebida>> estanterias)
+        public Almacen(List<List<Estante>> estanterias)
         {
             this.estanterias = estanterias;
         }
 
-        public List<List<Bebida>> Estanterias
+        public List<List<Estante>> Estanterias
         {
             get { return estanterias; }
         }
@@ -23,10 +23,10 @@ namespace practico_15
         public int precioTotalAlmacen()
         {
             int cont = 0;
-            foreach(List<Bebida> est in estanterias) {
-                foreach (Bebida b in est) {
-                    if (b == null) continue;
-                    cont += b.Precio;
+            foreach(List<Estante> est in estanterias) {
+                foreach (Estante b in est) {
+                    if (b.Bebida == null) continue;
+                    cont += b.Bebida.Precio;
                 }
             } 
             return cont;
@@ -34,12 +34,12 @@ namespace practico_15
         public int precioTotalPorMarca(string marca)
         {
             int cont = 0;
-            foreach (List<Bebida> est in estanterias)
+            foreach (List<Estante> est in estanterias)
             {
-                foreach (Bebida b in est)
+                foreach (Estante b in est)
                 {
-                    if (b == null) continue;
-                    if(b.MarcaGet == marca) cont += b.Precio;
+                    if (b.Bebida == null) continue;
+                    if(b.Bebida.MarcaGet == marca) cont += b.Bebida.Precio;
                 }
             }
             return cont;
@@ -47,23 +47,23 @@ namespace practico_15
         public int precioTotalEstanteria(int numeroDeEstante)
         {
             int cont = 0;
-            foreach(Bebida b in estanterias[numeroDeEstante])
+            foreach(Estante b in estanterias[numeroDeEstante])
             {
-                if (b == null) continue;
-                cont += b.Precio;
+                if (b.Bebida == null) continue;
+                cont += b.Bebida.Precio;
             }
             return cont;
         }
         public string agregarBebida(Bebida b)
         {
-            if (estanterias.Exists(v => v.Exists(y => y != null && y.Id == b.Id))) return "No se agrego la bebida porque ya existia una bebida con el id "+b.Id;
-            foreach(List<Bebida> est in estanterias)
+            if (estanterias.Exists(v => v.Exists(y => y.Bebida != null && y.Bebida.Id == b.Id))) return "No se agrego la bebida porque ya existia una bebida con el id "+b.Id;
+            foreach(List<Estante> est in estanterias)
             {
                 for(int i = 0; i < estanterias.Count(); i++)
                 {
-                    if(est[i] == null)
+                    if(est[i].Bebida == null)
                     {
-                        est[i] = b;
+                        est[i].Bebida = b;
                         return "Se agrego una " + b.MarcaGet;
                     }
                 }
@@ -74,12 +74,12 @@ namespace practico_15
         {
             for(int i = 0; i < estanterias.Count();i++)
             {
-                foreach(Bebida b in estanterias[i])
+                foreach(Estante b in estanterias[i])
                 {
-                    if (b == null) continue;
-                    if(b.Id == id)
+                    if (b.Bebida == null) continue;
+                    if(b.Bebida.Id == id)
                     {
-                        estanterias[i][estanterias[i].IndexOf(b)] = null;
+                        estanterias[i][estanterias[i].IndexOf(b)].Bebida = null;
                         return "Se elimino la bebida";
                     }
                 }
@@ -88,22 +88,22 @@ namespace practico_15
         }
         public string mostrarInformacion()
         {
-            if (!estanterias.Exists(v => v.Exists(y => y != null))) return "No hay bebidas";
+            if (!estanterias.Exists(v => v.Exists(y => y.Bebida != null))) return "No hay bebidas";
             string conc = "Almacen\nPrecio total de las bebidas que hay: "+precioTotalAlmacen()+" pesos";
-            foreach(List<Bebida> est in estanterias)
+            foreach(List<Estante> est in estanterias)
             {
                 conc += "\n\nEstante "+(estanterias.IndexOf(est)+1)+"\nPrecio de las bebidas de este estante: "+precioTotalEstanteria(estanterias.IndexOf(est));
-                foreach(Bebida b in est)
+                foreach(Estante b in est)
                 {
-                    if (b == null) continue;
-                    if (b is AguaMineral)
+                    if (b.Bebida == null) continue;
+                    if (b.Bebida is AguaMineral)
                     {
-                        AguaMineral am = (AguaMineral)b;
+                        AguaMineral am = (AguaMineral)b.Bebida;
                         conc += "\n\n"+am.MarcaGet+"\nId: "+am.Id+"\nPrecio: "+am.Precio+"\nCantidad de Litros: "+am.Litros+"\nOrigen: "+am.Origen;
                     }
                     else
                     {
-                        BebidaAzucarada am = (BebidaAzucarada)b;
+                        BebidaAzucarada am = (BebidaAzucarada)b.Bebida;
                         conc += "\n\n"+am.MarcaGet+"\nId: "+am.Id+"\nPrecio: "+am.Precio+"\nCantidad de Litros: "+am.Litros+"\nPorcentaje de azucares: "+am.Azucar+"%\nPromoción: "+am.Promocion;
                     }
                 }
