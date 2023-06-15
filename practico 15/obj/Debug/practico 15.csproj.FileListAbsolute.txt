@@ -1,0 +1,7 @@
+C:\c-proyecto\practico 15\obj\Debug\practico 15.csproj.AssemblyReference.cache
+C:\c-proyecto\practico 15\obj\Debug\practico 15.csproj.CoreCompileInputs.cache
+C:\c-proyecto\practico 15\bin\Debug\practico 15.exe.config
+C:\c-proyecto\practico 15\bin\Debug\practico 15.exe
+C:\c-proyecto\practico 15\bin\Debug\practico 15.pdb
+C:\c-proyecto\practico 15\obj\Debug\practico 15.exe
+C:\c-proyecto\practico 15\obj\Debug\practico 15.pdb
