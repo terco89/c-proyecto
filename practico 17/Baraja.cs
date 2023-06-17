@@ -76,15 +76,40 @@ namespace practico_17
             }
             return cartasN;
         }
-        public List<Carta> cartasMonton()
+        public void cartasMonton()
         {
             if (cartasL.Count() == 0)
-                return null;
-            return cartasL;
+            {
+                Console.WriteLine("\n\nVacío");
+                return;
+            }
+            int x = 0, y = 0;
+            for (int i = 0; i < cartasL.Count(); i++)
+            {
+                y++;
+                if (i % 25 == 0)
+                {
+                    x++;
+                    y = 0;
+                }
+                Console.SetCursorPosition(x * 30, y + 2);
+                Console.WriteLine(cartasL[i].Palo);
+            }
         }
-        public List<Carta> mostrarBaraja()
+        public virtual void mostrarBaraja()
         {
-            return cartas;
+            int x = 0, y = 0;
+            for (int i = 0; i < cartas.Count(); i++)
+            {
+                y++;
+                if (i % 25 == 0)
+                {
+                    x++;
+                    y = 0;
+                }
+                Console.SetCursorPosition(x * 30, y + 2);
+                Console.WriteLine(cartas[i].Palo);
+            }
         }
     }
 }
