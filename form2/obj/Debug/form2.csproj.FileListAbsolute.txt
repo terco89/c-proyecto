@@ -9,3 +9,13 @@ C:\valera\c-proyecto\form2\obj\Debug\form2.csproj.GenerateResource.cache
 C:\valera\c-proyecto\form2\obj\Debug\form2.csproj.CoreCompileInputs.cache
 C:\valera\c-proyecto\form2\obj\Debug\form2.exe
 C:\valera\c-proyecto\form2\obj\Debug\form2.pdb
+C:\c-proyecto\form2\bin\Debug\form2.exe.config
+C:\c-proyecto\form2\bin\Debug\form2.exe
+C:\c-proyecto\form2\bin\Debug\form2.pdb
+C:\c-proyecto\form2\obj\Debug\form2.csproj.AssemblyReference.cache
+C:\c-proyecto\form2\obj\Debug\form2.Form1.resources
+C:\c-proyecto\form2\obj\Debug\form2.Properties.Resources.resources
+C:\c-proyecto\form2\obj\Debug\form2.csproj.GenerateResource.cache
+C:\c-proyecto\form2\obj\Debug\form2.csproj.CoreCompileInputs.cache
+C:\c-proyecto\form2\obj\Debug\form2.exe
+C:\c-proyecto\form2\obj\Debug\form2.pdb
