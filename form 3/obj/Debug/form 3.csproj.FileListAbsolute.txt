@@ -1,0 +1,11 @@
+C:\valera\c-proyecto\form 3\bin\Debug\form 3.exe.config
+C:\valera\c-proyecto\form 3\bin\Debug\form 3.exe
+C:\valera\c-proyecto\form 3\bin\Debug\form 3.pdb
+C:\valera\c-proyecto\form 3\obj\Debug\form 3.csproj.AssemblyReference.cache
+C:\valera\c-proyecto\form 3\obj\Debug\form 3.csproj.SuggestedBindingRedirects.cache
+C:\valera\c-proyecto\form 3\obj\Debug\form_3.Form1.resources
+C:\valera\c-proyecto\form 3\obj\Debug\form_3.Properties.Resources.resources
+C:\valera\c-proyecto\form 3\obj\Debug\form 3.csproj.GenerateResource.cache
+C:\valera\c-proyecto\form 3\obj\Debug\form 3.csproj.CoreCompileInputs.cache
+C:\valera\c-proyecto\form 3\obj\Debug\form 3.exe
+C:\valera\c-proyecto\form 3\obj\Debug\form 3.pdb

@@ -79,6 +79,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "form1", "form1\form1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "form2", "form2\form2.csproj", "{B584E6A6-2CC3-4E25-AFC8-6982791C1E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "form 3", "form 3\form 3.csproj", "{CEB468C6-7DAC-4A05-A719-7323E2C4353C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +231,10 @@ Global
 		{B584E6A6-2CC3-4E25-AFC8-6982791C1E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B584E6A6-2CC3-4E25-AFC8-6982791C1E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B584E6A6-2CC3-4E25-AFC8-6982791C1E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB468C6-7DAC-4A05-A719-7323E2C4353C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB468C6-7DAC-4A05-A719-7323E2C4353C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB468C6-7DAC-4A05-A719-7323E2C4353C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB468C6-7DAC-4A05-A719-7323E2C4353C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -253,6 +259,7 @@ Global
 		{85ACB78E-25B3-4FA3-9A42-F4ED653755D6} = {224CAFEE-1636-4524-BAED-B8B246623233}
 		{9926216B-789F-450B-99CF-DC3C6644EBDF} = {B2751CFC-5DD8-44B5-9F96-BC0A1F7B0E36}
 		{B584E6A6-2CC3-4E25-AFC8-6982791C1E28} = {B2751CFC-5DD8-44B5-9F96-BC0A1F7B0E36}
+		{CEB468C6-7DAC-4A05-A719-7323E2C4353C} = {B2751CFC-5DD8-44B5-9F96-BC0A1F7B0E36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA4CC561-5E7E-469D-9396-28008C646B17}
