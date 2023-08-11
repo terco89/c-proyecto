@@ -29,7 +29,7 @@ namespace form_3
 
 
         List<Mix> mixes = new List<Mix>();
-        int indexList = -1;
+        int indexList = -1,indexList1 = -1,posActual,tam;
         
         public Form1()
         {
@@ -81,6 +81,68 @@ namespace form_3
             //else // si no hay archivo especificado, devolvemos la cadena indicando
                  // el evento.
                 //ReproductorEstado("No se ha especificado ningún nombre de archivo");
+        }
+
+        public long CalcularPosicion(string path)
+        {
+            StringBuilder sbBuffer = new StringBuilder(MAX_PATH);
+            mciSendString("set " + path + " time format milliseconds", null, 0, 0);
+            mciSendString("status " + path + " position", sbBuffer, MAX_PATH, 0);
+
+            if (sbBuffer.ToString() != "")
+                return long.Parse(sbBuffer.ToString()) / 1000;
+            else
+                return 0L;
+        }
+        /// <returns>Cadena con la información.</returns>
+        public string Posicion(string path)
+        {
+            // obtenemos los segundos.
+            long sec = CalcularPosicion(path);
+            long mins;
+
+            if (sec < 60)
+                return "0:" + String.Format("{0:D2}", sec);
+            else if (sec > 59)
+            {
+                mins = (int)(sec / 60);
+                sec = sec - (mins * 60);
+                return String.Format("{0:D2}", mins) + ":" + String.Format("{0:D2}", sec);
+            }
+            else
+                return "";
+        }
+        public long CalcularTamaño(string path)
+        {
+            StringBuilder sbBuffer = new StringBuilder(MAX_PATH);
+            mciSendString("set " + path + " time format milliseconds", null, 0, 0);
+            mciSendString("status " + path + " length", sbBuffer, MAX_PATH, 0);
+
+            if (sbBuffer.ToString() != "")
+                return long.Parse(sbBuffer.ToString()) / 1000;
+            else
+                return 0L;
+        }
+        public string Tamaño(string path)
+        {
+            long sec = CalcularTamaño(path);
+            long mins;
+
+            if (sec < 60)
+                return "0:" + String.Format("{0:D2}", sec);
+            else if (sec > 59)
+            {
+                mins = (int)(sec / 60);
+                sec = sec - (mins * 60);
+                return String.Format("{0:D2}", mins) + ":" + String.Format("{0:D2}", sec);
+            }
+            else
+                return "";
+        }
+
+        public void ReproducirLista()
+        {
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -165,6 +227,8 @@ namespace form_3
 
         private void button5_Click(object sender, EventArgs e)
         {
+            this.groupBox4.Visible = true;
+            this.groupBox4.Location = new System.Drawing.Point(159,80);
             indexList = this.listBox1.SelectedIndex;
             fileName = mixes[indexList].audios[0].dir;
             Reproducir();
@@ -173,6 +237,12 @@ namespace form_3
         private void button8_Click(object sender, EventArgs e)
         {
             this.groupBox3.Visible = false;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            mixes[indexList].audios.RemoveAt(this.listBox2.SelectedIndex);
+            this.listBox2.Items.RemoveAt(this.listBox2.SelectedIndex);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -185,8 +255,18 @@ namespace form_3
                 {
                     foreach (string path in openFileDialog1.FileNames)
                     {
-                        mixes[indexList].audios.Add(new Cancion("Cancion " + (mixes[indexList].audios.Count).ToString(),path));
-                        this.listBox2.Items.Add("Cancion " + (mixes[indexList].audios.Count));
+                        string[] outs = path.Split('.')[0].Split('\\');
+                        string nombre = outs[outs.Length - 1];
+                        for(int i = 0; i <  mixes[indexList].audios.Count)
+                        {
+                            /*if(c.nombre == nombre)
+                            {
+                                
+                                nombre = c.nombre;
+                            }*/
+                        }
+                        mixes[indexList].audios.Add(new Cancion(nombre,path));
+                        this.listBox2.Items.Add(nombre.ToString());
                     }
                 }
                 catch (Exception exp)
@@ -195,6 +275,11 @@ namespace form_3
                     MessageBox.Show(exp.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

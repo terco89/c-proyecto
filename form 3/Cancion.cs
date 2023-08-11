@@ -10,6 +10,7 @@ namespace form_3
     {
         public string nombre;
         public string dir;
+        public int iguales = 0;
 
         public Cancion(string nombre, string dir)
         {
