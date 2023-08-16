@@ -30,7 +30,8 @@ namespace form_3
 
         List<Mix> mixes = new List<Mix>();
         int indexList = -1,indexList1 = -1,posActual,tam;
-        
+        bool banImg = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -140,9 +141,43 @@ namespace form_3
                 return "";
         }
 
+        public void Pausar()
+        {
+            // Enviamos el comando de pausa mediante la función mciSendString,
+            int mciResul = mciSendString("pause " + sAlias, null, 0, 0);
+        }
+
         public void ReproducirLista()
         {
+            int tiempoCalculado = 0;
+            DateTime hora = DateTime.Now;
+            DateTime horaActual = DateTime.Now;
+            TimeSpan tiempoTrasncurrido;
+            for (int i = 0; i < mixes[indexList].audios.Count; i++)
+            {
+                fileName = mixes[indexList].audios[i].dir;
+                Reproducir();
+                tiempoCalculado = int.Parse(CalcularTamaño(fileName).ToString());
+                while (true)
+                {
+                    if (!banImg) {
+                    horaActual = DateTime.Now;
+                    tiempoTrasncurrido = horaActual - hora;
+                    if (tiempoTrasncurrido.Seconds == tiempoCalculado)
+                    {
+                        Cerrar();
+                        break;
+                    }
+                    }
+                }
+            }
+        }
 
+        public void Cerrar()
+        {
+            // Establecemos los comando detener reproducción y cerrar archivo.
+            mciSendString("stop " + sAlias, null, 0, 0);
+            mciSendString("close " + sAlias, null, 0, 0);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -228,15 +263,19 @@ namespace form_3
         private void button5_Click(object sender, EventArgs e)
         {
             this.groupBox4.Visible = true;
-            this.groupBox4.Location = new System.Drawing.Point(159,80);
+            this.groupBox4.Location = new System.Drawing.Point(6,0);
             indexList = this.listBox1.SelectedIndex;
-            fileName = mixes[indexList].audios[0].dir;
-            Reproducir();
+            ReproducirLista();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             this.groupBox3.Visible = false;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -257,7 +296,7 @@ namespace form_3
                     {
                         string[] outs = path.Split('.')[0].Split('\\');
                         string nombre = outs[outs.Length - 1];
-                        for(int i = 0; i <  mixes[indexList].audios.Count)
+                        for(int i = 0; i <  mixes[indexList].audios.Count; i++)
                         {
                             /*if(c.nombre == nombre)
                             {
@@ -279,7 +318,16 @@ namespace form_3
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            if (banImg)
+            {
+                banImg = false;
+                Reproducir();
+            }
+            else
+            {
+                banImg = true;
+                Pausar();
+            }
         }
     }
 }
