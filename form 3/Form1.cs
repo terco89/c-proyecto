@@ -84,11 +84,30 @@ namespace form_3
                 //ReproductorEstado("No se ha especificado ningún nombre de archivo");
         }
 
-        public long CalcularPosicion(string path)
+        public void ReproducirDesde(long Desde)
+        {
+            Pausar();
+            if(Desde < 0)
+            {
+                Desde = 0;
+            }
+            else if(Desde > CalcularTamaño())
+            {
+                Desde = CalcularTamaño();
+            }
+            int mciResul = mciSendString("play " + sAlias + " from " +
+            (Desde * 1000).ToString(), null, 0, 0);
+            //if (mciResul == 0)
+            //    ReproductorEstado("Nueva Posición: " + Desde.ToString());
+            //else
+            //    ReproductorEstado(MciMensajesDeError(mciResul));
+        }
+
+        public long CalcularPosicion()
         {
             StringBuilder sbBuffer = new StringBuilder(MAX_PATH);
-            mciSendString("set " + path + " time format milliseconds", null, 0, 0);
-            mciSendString("status " + path + " position", sbBuffer, MAX_PATH, 0);
+            mciSendString("set " + sAlias + " time format milliseconds", null, 0, 0);
+            mciSendString("status " + sAlias + " position", sbBuffer, MAX_PATH, 0);
 
             if (sbBuffer.ToString() != "")
                 return long.Parse(sbBuffer.ToString()) / 1000;
@@ -96,10 +115,10 @@ namespace form_3
                 return 0L;
         }
         /// <returns>Cadena con la información.</returns>
-        public string Posicion(string path)
+        public string Posicion()
         {
             // obtenemos los segundos.
-            long sec = CalcularPosicion(path);
+            long sec = CalcularPosicion();
             long mins;
 
             if (sec < 60)
@@ -113,20 +132,20 @@ namespace form_3
             else
                 return "";
         }
-        public long CalcularTamaño(string path)
+        public long CalcularTamaño()
         {
             StringBuilder sbBuffer = new StringBuilder(MAX_PATH);
-            mciSendString("set " + path + " time format milliseconds", null, 0, 0);
-            mciSendString("status " + path + " length", sbBuffer, MAX_PATH, 0);
+            mciSendString("set " + sAlias + " time format milliseconds", null, 0, 0);
+            mciSendString("status " + sAlias + " length", sbBuffer, MAX_PATH, 0);
 
             if (sbBuffer.ToString() != "")
                 return long.Parse(sbBuffer.ToString()) / 1000;
             else
                 return 0L;
         }
-        public string Tamaño(string path)
+        public string Tamaño()
         {
-            long sec = CalcularTamaño(path);
+            long sec = CalcularTamaño();
             long mins;
 
             if (sec < 60)
@@ -149,28 +168,25 @@ namespace form_3
 
         public void ReproducirLista()
         {
-            int tiempoCalculado = 0;
-            DateTime hora = DateTime.Now;
-            DateTime horaActual = DateTime.Now;
-            TimeSpan tiempoTrasncurrido;
-            for (int i = 0; i < mixes[indexList].audios.Count; i++)
-            {
-                fileName = mixes[indexList].audios[i].dir;
+            //for (int i = 0; i < mixes[indexList].audios.Count; i++)
+            //{
+                fileName = mixes[indexList].audios[0].dir;
                 Reproducir();
-                tiempoCalculado = int.Parse(CalcularTamaño(fileName).ToString());
-                while (true)
-                {
-                    if (!banImg) {
-                    horaActual = DateTime.Now;
-                    tiempoTrasncurrido = horaActual - hora;
-                    if (tiempoTrasncurrido.Seconds == tiempoCalculado)
-                    {
-                        Cerrar();
-                        break;
-                    }
-                    }
-                }
-            }
+                label5.Text = Tamaño();
+                trackBar1.Maximum = int.Parse(CalcularTamaño().ToString());
+            //}
+        }
+
+        public void Reposicionar(long NuevaPosicion)
+        {
+            // Enviamos la cadena de comando adecuada a la función mciSendString,
+            // pasando como parte del mismo, la cantidad a mover el apuntador de
+            // archivo.
+            mciSendString("seek " + sAlias + " to " + (NuevaPosicion*1000).ToString(), null, 0, 0);
+            //if (mciResul == 0)
+            //ReproductorEstado("Nueva Posición: " + NuevaPosicion.ToString());
+            //else
+            //ReproductorEstado(MciMensajesDeError(mciResul));
         }
 
         public void Cerrar()
@@ -178,6 +194,16 @@ namespace form_3
             // Establecemos los comando detener reproducción y cerrar archivo.
             mciSendString("stop " + sAlias, null, 0, 0);
             mciSendString("close " + sAlias, null, 0, 0);
+        }
+        public void Continuar()
+        {
+            // Enviamos el comando de pausa mediante la función mciSendString,
+            int mciResul = mciSendString("resume " + sAlias, null, 0, 0);
+            //if (mciResul == 0)
+                // informamos del evento,
+                //ReproductorEstado("Continuar");
+            //else si no, comunicamos el error.
+                //ReproductorEstado(MciMensajesDeError(mciResul));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -275,7 +301,20 @@ namespace form_3
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            ReproducirDesde(CalcularPosicion() - 5);
+        }
 
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            ReproducirDesde(CalcularPosicion() + 5);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(fileName != null && !banImg)
+            {
+                
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -321,7 +360,7 @@ namespace form_3
             if (banImg)
             {
                 banImg = false;
-                Reproducir();
+                Continuar();
             }
             else
             {
