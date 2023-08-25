@@ -23,14 +23,14 @@ namespace form_3
         const string Tipo = "MPEGVIDEO";
         // Alias asignado al archivo especificado.
         const string sAlias = "ArchivoDeSonido";
-        private string fileName; //Nombre de archivo a reproducir
+        private string fileName = ""; //Nombre de archivo a reproducir
         [DllImport("winmm.dll")]
         public static extern int waveOutGetNumDevs();
 
 
         List<Mix> mixes = new List<Mix>();
         int indexList = -1,indexList1 = -1,posActual,tam;
-        bool banImg = false;
+        bool banImg = true;
 
         public Form1()
         {
@@ -70,14 +70,15 @@ namespace form_3
                 if (Abrir())
                 {
                     int mciResul = mciSendString("play " + sAlias, null, 0, 0);
+
                     //if (mciResul == 0)
-                        // si se ha tenido éxito, devolvemos el mensaje adecuado,
-                        //ReproductorEstado("Ok");
+                    // si se ha tenido éxito, devolvemos el mensaje adecuado,
+                    //ReproductorEstado("Ok");
                     //else // en caso contrario, la cadena de mensaje de error.
-                        //ReproductorEstado(MciMensajesDeError(mciResul));
+                    //ReproductorEstado(MciMensajesDeError(mciResul));
                 }
                 //else // sí el archivo no ha sido abierto, indicamos el mensaje de error.
-                    //ReproductorEstado("No se ha logrado abrir el archivo especificado");
+                //ReproductorEstado("No se ha logrado abrir el archivo especificado");
             }
             //else // si no hay archivo especificado, devolvemos la cadena indicando
                  // el evento.
@@ -164,16 +165,21 @@ namespace form_3
         {
             // Enviamos el comando de pausa mediante la función mciSendString,
             int mciResul = mciSendString("pause " + sAlias, null, 0, 0);
+            
         }
 
         public void ReproducirLista()
         {
             //for (int i = 0; i < mixes[indexList].audios.Count; i++)
             //{
-                fileName = mixes[indexList].audios[0].dir;
+                indexList1 = 0;
+                fileName = mixes[indexList].audios[indexList1].dir;
                 Reproducir();
-                label5.Text = Tamaño();
+            tam = int.Parse(CalcularTamaño().ToString());
+
+            label5.Text = Tamaño();
                 trackBar1.Maximum = int.Parse(CalcularTamaño().ToString());
+                banImg = false;
             //}
         }
 
@@ -194,16 +200,19 @@ namespace form_3
             // Establecemos los comando detener reproducción y cerrar archivo.
             mciSendString("stop " + sAlias, null, 0, 0);
             mciSendString("close " + sAlias, null, 0, 0);
+            banImg = true;
         }
         public void Continuar()
         {
             // Enviamos el comando de pausa mediante la función mciSendString,
             int mciResul = mciSendString("resume " + sAlias, null, 0, 0);
+            this.pictureBox1.Visible = true;
+            this.pictureBox4.Visible = false;
             //if (mciResul == 0)
-                // informamos del evento,
-                //ReproductorEstado("Continuar");
+            // informamos del evento,
+            //ReproductorEstado("Continuar");
             //else si no, comunicamos el error.
-                //ReproductorEstado(MciMensajesDeError(mciResul));
+            //ReproductorEstado(MciMensajesDeError(mciResul));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -242,6 +251,7 @@ namespace form_3
         {
             if (this.listBox1.SelectedItem == null) return;
             this.button4.Enabled = true;
+            if (mixes[this.listBox1.SelectedIndex].audios.Count == 0) return;
             this.button5.Enabled = true;
         }
 
@@ -267,6 +277,7 @@ namespace form_3
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            if (this.textBox1.Text == "") return;
             this.listBox1.Items.Add(this.textBox1.Text);
             mixes.Add(new Mix(this.textBox1.Text));
             this.textBox1.Text = "";
@@ -302,25 +313,80 @@ namespace form_3
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             ReproducirDesde(CalcularPosicion() - 5);
+            banImg = false;
+            this.pictureBox1.Visible = true;
+            this.pictureBox4.Visible = false;
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             ReproducirDesde(CalcularPosicion() + 5);
+            banImg = false;
+            this.pictureBox1.Visible = true;
+            this.pictureBox4.Visible = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(fileName != null && !banImg)
+            if (!banImg)
             {
-                
+                this.trackBar1.Value = int.Parse(CalcularPosicion().ToString());
+                label6.Text = Posicion();
+                if(int.Parse(CalcularPosicion().ToString()) == tam)
+                {
+                    if (mixes[indexList].audios.Count - 1 == indexList1)
+                    {
+                        banImg = true;
+                        Pausar();
+                        this.pictureBox1.Visible = false;
+                        this.pictureBox4.Visible = true;
+                        return;
+                    }
+                    Cerrar();
+                    indexList1++;
+                    fileName = mixes[indexList].audios[indexList1].dir;
+                    Reproducir();
+                    tam = int.Parse(CalcularTamaño().ToString());
+                    banImg = false;
+                    label5.Text = Tamaño();
+                    trackBar1.Maximum = int.Parse(CalcularTamaño().ToString());
+                }
             }
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            label6.Text = Posicion();
+            ReproducirDesde(trackBar1.Value);
+            banImg = false;
+            this.pictureBox1.Visible = true;
+            this.pictureBox4.Visible = false;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Cerrar();
+            indexList1 = -1;
+            fileName = "";
+            tam = 0;
+            label5.Text = "0:0";
+            trackBar1.Maximum = 0;
+            banImg = true;
+            this.groupBox4.Visible = false;
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.listBox2.SelectedItem == null) return;
+            button7.Enabled = true;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             mixes[indexList].audios.RemoveAt(this.listBox2.SelectedIndex);
             this.listBox2.Items.RemoveAt(this.listBox2.SelectedIndex);
+            if (mixes[this.listBox1.SelectedIndex].audios.Count == 0) this.button5.Enabled = false;
+            button7.Enabled = false;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -346,6 +412,7 @@ namespace form_3
                         mixes[indexList].audios.Add(new Cancion(nombre,path));
                         this.listBox2.Items.Add(nombre.ToString());
                     }
+                    this.button5.Enabled = true;
                 }
                 catch (Exception exp)
                 {
@@ -359,6 +426,14 @@ namespace form_3
         {
             if (banImg)
             {
+                if (int.Parse(CalcularPosicion().ToString()) == tam)
+                {
+                    banImg = false;
+                    ReproducirDesde(0);
+                    this.pictureBox1.Visible = true;
+                    this.pictureBox4.Visible = false;
+                    return;
+                }
                 banImg = false;
                 Continuar();
             }
@@ -366,6 +441,8 @@ namespace form_3
             {
                 banImg = true;
                 Pausar();
+                this.pictureBox1.Visible = false;
+                this.pictureBox4.Visible = true;
             }
         }
     }
