@@ -29,7 +29,7 @@ namespace form_3
 
 
         List<Mix> mixes = new List<Mix>();
-        int indexList = -1,indexList1 = -1,posActual,tam;
+        int indexList = -1,indexList1 = -1,posActual,tam,espVol = 0;
         bool banImg = true;
 
         public Form1()
@@ -159,6 +159,11 @@ namespace form_3
             }
             else
                 return "";
+        }
+
+        public void CambiarVolumen(int vol)
+        {
+            mciSendString("setaudio " + sAlias + " volume to " + vol, null, 0, 0);
         }
 
         public void Pausar()
@@ -352,6 +357,15 @@ namespace form_3
                     trackBar1.Maximum = int.Parse(CalcularTamaño().ToString());
                 }
             }
+            if (trackBar2.Visible)
+            {
+                espVol++;
+                if(espVol == 40)
+                {
+                    trackBar2.Visible = false;
+                    espVol = 0;
+                }
+            }
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -379,6 +393,21 @@ namespace form_3
         {
             if (this.listBox2.SelectedItem == null) return;
             button7.Enabled = true;
+        }
+
+        private void trackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            espVol = 0;
+            CambiarVolumen(trackBar2.Value);
+            if (trackBar2.Value == 0) pictureBox5.Image = pictureBox6.Image;
+            if (trackBar2.Value > 0 && trackBar2.Value < 33) pictureBox5.Image = pictureBox7.Image;
+            if (trackBar2.Value >= 33 && trackBar2.Value < 66) pictureBox5.Image = pictureBox8.Image;
+            if (trackBar2.Value >= 66) pictureBox5.Image = pictureBox9.Image;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            trackBar2.Visible = !trackBar2.Visible;
         }
 
         private void button7_Click(object sender, EventArgs e)
