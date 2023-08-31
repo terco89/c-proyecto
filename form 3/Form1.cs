@@ -161,10 +161,23 @@ namespace form_3
                 return "";
         }
 
-        public void CambiarVolumen(int vol)
+        public void Velocidad(int Tramas)
         {
-            mciSendString("setaudio " + sAlias + " volume to " + vol, null, 0, 0);
+            // Establecemos la nueva velocidad pasando como parámetro,
+            // la cadena adecuada, incluyendo el nuevo valor de la velocidad,
+            // medido en tramas por segundo.
+            int mciResul = mciSendString("setaudio " + sAlias + " speed to " + Tramas.ToString(), null, 0, 0);
+            //if (mciResul == 0)
+                // informamos el evento de la modificación éxitosa,
+                //ReproductorEstado("Velocidad modificada.");
+            //else // de lo contrario, enviamos el mensaje de error correspondiente.
+                //ReproductorEstado(MciMensajesDeError(mciResul));
         }
+
+        /*public void CambiarVolumen(int vol)
+        {
+            int mciResul = mciSendString("setaudio " + sAlias + " volume to " + vol.ToString(), null, 0, 0);
+        }*/
 
         public void Pausar()
         {
@@ -357,15 +370,6 @@ namespace form_3
                     trackBar1.Maximum = int.Parse(CalcularTamaño().ToString());
                 }
             }
-            if (trackBar2.Visible)
-            {
-                espVol++;
-                if(espVol == 40)
-                {
-                    trackBar2.Visible = false;
-                    espVol = 0;
-                }
-            }
         }
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
@@ -393,21 +397,6 @@ namespace form_3
         {
             if (this.listBox2.SelectedItem == null) return;
             button7.Enabled = true;
-        }
-
-        private void trackBar2_ValueChanged(object sender, EventArgs e)
-        {
-            espVol = 0;
-            CambiarVolumen(trackBar2.Value);
-            if (trackBar2.Value == 0) pictureBox5.Image = pictureBox6.Image;
-            if (trackBar2.Value > 0 && trackBar2.Value < 33) pictureBox5.Image = pictureBox7.Image;
-            if (trackBar2.Value >= 33 && trackBar2.Value < 66) pictureBox5.Image = pictureBox8.Image;
-            if (trackBar2.Value >= 66) pictureBox5.Image = pictureBox9.Image;
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            trackBar2.Visible = !trackBar2.Visible;
         }
 
         private void button7_Click(object sender, EventArgs e)

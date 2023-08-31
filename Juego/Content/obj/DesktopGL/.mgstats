@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/valera/c-proyecto/Juego/Content/img/argentino.png","C:/valera/c-proyecto/Juego/Content/bin/DesktopGL/img/argentino.xnb","TextureProcessor","Texture2DContent",9932,201217,0,1711417
+"C:/valera/c-proyecto/Juego/Content/img/dolar.jpg","C:/valera/c-proyecto/Juego/Content/bin/DesktopGL/img/dolar.xnb","TextureProcessor","Texture2DContent",10265,201517,0,0082299
