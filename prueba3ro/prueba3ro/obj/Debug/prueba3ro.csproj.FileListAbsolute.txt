@@ -1,0 +1,11 @@
+C:\valera\prueba3ro\prueba3ro\bin\Debug\prueba3ro.exe.config
+C:\valera\prueba3ro\prueba3ro\bin\Debug\prueba3ro.exe
+C:\valera\prueba3ro\prueba3ro\bin\Debug\prueba3ro.pdb
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.csproj.AssemblyReference.cache
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.csproj.SuggestedBindingRedirects.cache
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.Form1.resources
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.Properties.Resources.resources
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.csproj.GenerateResource.cache
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.csproj.CoreCompileInputs.cache
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.exe
+C:\valera\prueba3ro\prueba3ro\obj\Debug\prueba3ro.pdb
